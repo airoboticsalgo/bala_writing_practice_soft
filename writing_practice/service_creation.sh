@@ -36,6 +36,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=${PROJECT_DIR}
+Environment="WRITING_PRACTICE_CONFIG=${PROJECT_DIR}/config/prod.conf"
 ExecStart=${PROJECT_DIR}/prod_run.sh
 ExecReload=/bin/kill -s HUP \$MAINPID
 Restart=on-failure
