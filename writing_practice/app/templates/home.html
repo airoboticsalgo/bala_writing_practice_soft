@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Writing Practice{% endblock %}
+
+{% block content %}
+<h1>Print Handwriting Practice</h1>
+<p class="lead">Make a printable worksheet for practising letters and words. Pick a language to start.</p>
+
+<div class="cards">
+  <a class="card" href="{{ url_for('practice.form', lang='english') }}">
+    <span class="card-sample" aria-hidden="true">Aa</span>
+    <span class="card-title">English Handwriting</span>
+    <span class="card-note">Print letters, words and sentences on four-line guides</span>
+  </a>
+  <a class="card" href="{{ url_for('practice.form', lang='hindi') }}">
+    <span class="card-sample" aria-hidden="true">क</span>
+    <span class="card-title">Hindi Handwriting <span class="native">(हिंदी लेखन)</span></span>
+    <span class="card-note">स्वर, व्यंजन, मात्राएँ और बारहखड़ी — with a shiro-rekha guide</span>
+  </a>
+</div>
+{% endblock %}

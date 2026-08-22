@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+output/
+*.pdf
+!app/static/**
+# Lucida faces are copied from C:\Windows\Fonts and are not redistributable.
+app/static/fonts/Lucida*.ttf
+app/static/fonts/LHANDW.TTF
+app/static/fonts/LSANS*.TTF
+app/static/fonts/LSANSD*.TTF
+app/static/fonts/LTYPE*.TTF
+.env
