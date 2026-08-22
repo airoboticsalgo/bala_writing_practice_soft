@@ -12,3 +12,5 @@ app/static/fonts/LSANS*.TTF
 app/static/fonts/LSANSD*.TTF
 app/static/fonts/LTYPE*.TTF
 .env
+data/.session_secret
+

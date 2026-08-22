@@ -8,13 +8,22 @@ import os
 from flask import Flask, redirect, request, url_for
 
 from .auth import is_logged_in
-from .config import Settings, load_settings
+from .config import PROJECT_ROOT, Settings, load_settings
 from .render import fonts as font_lib
+
+
+def _load_secret() -> str:
+    secret_path = PROJECT_ROOT / "data" / ".session_secret"
+    secret_path.parent.mkdir(parents=True, exist_ok=True)
+    if not secret_path.exists():
+        import secrets
+        secret_path.write_text(secrets.token_hex(32), encoding="utf-8")
+    return secret_path.read_text(encoding="utf-8").strip()
 
 
 def create_app(settings: Settings | None = None) -> Flask:
     app = Flask(__name__)
-    app.secret_key = os.environ.get("WRITING_PRACTICE_SECRET") or os.urandom(24)
+    app.secret_key = os.environ.get("WRITING_PRACTICE_SECRET") or _load_secret()
     app.config["SETTINGS"] = settings or load_settings()
     settings = app.config["SETTINGS"]
 
