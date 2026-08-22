@@ -17,7 +17,7 @@ DEFAULT_CONFIG_PATH = PROJECT_ROOT / "config" / "app.conf"
 DEFAULTS: dict[str, dict[str, str]] = {
     "server": {
         "host": "127.0.0.1",
-        "port": "5061",
+        "port": "5050",
         "debug": "true",
     },
     "worksheet": {
